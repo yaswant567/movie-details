@@ -1,0 +1,11 @@
+.series{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.series .title{
+    font-size: x-large;
+}

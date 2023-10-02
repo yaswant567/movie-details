@@ -37,8 +37,8 @@ const MovieDescription = () => {
           <div className='desc'>
             <span className='desc_title'>{detail?.data?.title} - ({fetchYear(detail?.data?.release_date)})</span>
             <span className='desc_date'>
-              {(detail.adult === true) ? (<span className='adult'>PG-18+</span>):(<span className='adult'>PG-13+</span>)}
-              <span className='date'>{detail?.data?.release_date}</span>
+              {(detail.adult === true) ? (<span className='adult'>PG-18+</span>):(<span className='adult'>PG-13+</span>)} -
+              <span className='date'>{detail?.data?.release_date}</span> -
               {detail?.data?.production_countries.map((country) =>{
                 return(<span className='country'>{country.iso_3166_1}</span>)
               })}

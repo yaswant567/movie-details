@@ -62,3 +62,56 @@
     font-weight: bold; 
     color: rgb(149, 149, 237);
   }
+
+  .search_drop{
+    position: absolute;
+    top: 100%;
+    left: 14.3%;
+    right: 0;
+    z-index: 2;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 350px; 
+    height: 320px;
+    width: 43%;
+    overflow-y: auto;
+    margin-top: 0px;
+    border-radius: 17px;
+    color: #000000;
+  }
+
+  .search_drop::-webkit-scrollbar{
+    scroll-behavior: smooth;
+  }
+  .search_drop div {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .search_drop img {
+    width: 40px;
+    height: 60px;
+    margin-right: 10px;
+  }
+  
+  .drops{
+    display: flex;
+  }
+  .drops .poster{
+    flex: 1;
+  }
+  .drops .title{
+    flex: 5;
+  }
+  .search_drop span {
+    display: flex;
+    height: 2.5rem;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

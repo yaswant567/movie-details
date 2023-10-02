@@ -34,5 +34,13 @@ export const fetchMovieDetails = async(id) =>{
             Authorization: authKey
         }
     };
-    return axios(url, options);}
+    try {
+      const response = await axios(url, options);
+      return response
+    } catch (error) {
+      console.error('Error fetching movie IDs:', error);
+      return [];
+    }
+  }
+
 }

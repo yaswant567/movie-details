@@ -20,7 +20,10 @@ const Movies = () => {
           return prevPageNo - 1;
         }
         return prevPageNo;
-  });
+      });
+
+      window.scrollTo({top:0, behavior: 'smooth',});
+
     }
 
     useEffect(() =>{
@@ -45,7 +48,7 @@ const Movies = () => {
 
         fetchData();
     },[pageNo]);
-    console.log(movieIDs);
+    console.log({pageNo},movieIDs);
     console.log(movieDetails);
 
   return (
