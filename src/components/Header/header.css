@@ -50,3 +50,15 @@
     padding-right: 2%;
     gap: 5%;
   }
+
+  .header_right a{
+    text-decoration: none;
+    color: inherit;
+  }
+  .header_right a:hover{
+    color: rgb(149, 149, 237);
+  }
+  .header_right a:active {
+    font-weight: bold; 
+    color: rgb(149, 149, 237);
+  }
