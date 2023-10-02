@@ -15,7 +15,7 @@ const Page = (showType) => {
         <div className='show'>
 
           <div className='show_poster'>
-          {showT.data && showT.data.poster_path && (<img src={`https://www.themoviedb.org/t/p/w185/${showT.data.poster_path}`} alt="Description" />)}
+          {showT.data && showT.data.poster_path && (<img src={`https://www.themoviedb.org/t/p/w185/${showT.data.poster_path}`} alt="Please Reload the Page" />)}
           </div>
           <div className='show_details'>
             <span className='title'>{showT.data && showT.data.poster_path && (showT.data.title)}</span>
