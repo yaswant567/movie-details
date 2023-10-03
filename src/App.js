@@ -13,6 +13,7 @@ const App = () => {
       </header>
       <main>
         <Routes>
+          <Route path='/'  Component={Movies}/>
           <Route path='/Movies' Component={Movies}/>
           <Route path='/Description/:id' Component={MovieDescription}/>
           <Route path='/TVseries' Component={Series}/>

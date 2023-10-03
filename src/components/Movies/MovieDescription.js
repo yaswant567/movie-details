@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { fetchMovieDetails } from '../API/MovieAPIs/MovieApi'
+import Credits from '../Credits/Credits'
 
 import './movieDescription.css'
 
@@ -32,7 +33,7 @@ const MovieDescription = () => {
         </div>
         <div className='poster_desc'>
          <div className='poster' >
-           {detail?.data?.poster_path && <img src={`https://www.themoviedb.org/t/p/w342/${detail.data.poster_path}`} alt="Description" />}
+           {detail?.data?.poster_path && <img src={`https://www.themoviedb.org/t/p/w342/${detail.data.poster_path}`} alt="Please Reload the Page" />}
           </div>
           <div className='desc'>
             <span className='desc_title'>{detail?.data?.title} - ({fetchYear(detail?.data?.release_date)})</span>
@@ -54,10 +55,7 @@ const MovieDescription = () => {
       </div>
 
         <div className='cast'>
-          <span>asdfas</span>
-          <span>asdfas</span>
-          <span>asdfas</span>
-          <span>asdfas</span>
+          {}
         </div>
     </div>
   )

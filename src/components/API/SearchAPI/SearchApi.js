@@ -22,6 +22,6 @@ export const fetchSearchResults = async(input) =>{
     }
     catch(error){
         console.error('Error fetching Search Results:', error);
-        return [];
+        return (<h2>Error Fetching Search Results</h2>);
     }
 }

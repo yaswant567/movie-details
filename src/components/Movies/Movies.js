@@ -22,6 +22,7 @@ const Movies = () => {
         return prevPageNo;
       });
 
+      // Scrolls  the webpage to the Top of the window
       window.scrollTo({top:0, behavior: 'smooth',});
 
     }
