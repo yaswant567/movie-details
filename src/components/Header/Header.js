@@ -82,7 +82,7 @@ const Header = () => {
         <NavLink to="/Movies">
           <span className="movies">Movies</span>
         </NavLink>
-        <NavLink to="/Movies">
+        <NavLink to="/Home">
           <span>Home</span>
         </NavLink>
       </div>

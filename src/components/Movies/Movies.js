@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react'
 import { fetchMovieIDs, fetchMovieDetails } from '../API/MovieAPIs/MovieApi'
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
-import Page from '../Pages/Page'
+import MoviePage from '../Pages/MoviePage';
 
 import './movies.css'
 
@@ -54,7 +54,7 @@ const Movies = () => {
 
   return (
     <div className='Movies'>
-      <Page details={movieDetails}/>
+      <MoviePage details={movieDetails}/>
       <div className='page_no'>
         <span className='page' onClick={() => handlePageNo('prev')}><ArrowBackRoundedIcon/> Prev</span>
         <span>{pageNo}</span>

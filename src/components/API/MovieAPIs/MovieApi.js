@@ -44,3 +44,24 @@ export const fetchMovieDetails = async(id) =>{
   }
 
 }
+
+
+export const fetchNowPlayingMovies = async() =>{
+  const url =`${apiUrl}/movie/now_playing?language=en-US&page=1`;
+  const options = {
+    method: 'GET',
+    headers:{
+      accept: 'application/json',
+      Authorization: authKey
+    }
+  };
+
+  try{
+    const response = await axios(url,options);
+    return response;
+  }
+  catch(error){
+    console.log('There is no show playing:', error);
+  }
+}
+

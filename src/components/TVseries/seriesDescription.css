@@ -1,4 +1,4 @@
-.movieDescription{
+.seriesDescription{
     width: 100%;
     height: auto;
     display: flex;
@@ -105,6 +105,10 @@ img{
     padding: 2.5px;
 }
 .desc_genres{
+    display: flex;
+    gap: 7px;
+}
+.desc_type{
     display: flex;
     gap: 7px;
 }
