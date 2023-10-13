@@ -17,7 +17,14 @@
     align-items: center;
     justify-content: space-between;
     gap: 5px;
+
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.09);
+    }
 }
+
+
 .show_poster{
     height: 80%;
     border-radius: 17px;

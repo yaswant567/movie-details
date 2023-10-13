@@ -11,7 +11,7 @@ const MoviePage = (showType) => {
   return (
     <div className='Page'>
       {showType.details.map((showT) =>{ 
-        return(showT.data && showT.data.poster_path && (<Link to={`/Movie Description/${showT.data.id}`} key={showT.data.id} className='custom-link'>
+        return(showT.data && showT.data.poster_path && (<Link to={`/MovieDescription/${showT.data.id}`} key={showT.data.id} className='custom-link'>
         <div className='show'>
 
           <div className='show_poster'>

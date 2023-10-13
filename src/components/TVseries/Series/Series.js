@@ -1,14 +1,14 @@
 import React,{useEffect, useState} from 'react'
-import { fetchMovieIDs, fetchMovieDetails } from '../API/MovieAPIs/MovieApi'
+import { fetchSeriesIDs, fetchSeriesDetails } from '../../API/TvAPIs/TvApi'
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
-import MoviePage from '../Pages/MoviePage';
+import SeriesPage from '../../Pages/SeriesPage'
 
-import './movies.css'
+import './series.css'
 
-const Movies = () => {
-    const [movieIDs, setMovieIDs] = useState([]);
-    const [movieDetails, setMovieDetails] = useState([]);
+const Series = () => {
+    const [seriesIDs, setSeriesIDs] = useState([]);
+    const [seriesDetails, setSeriesDetails] = useState([]);
     const [pageNo, setPageNo] = useState(1);
 
     const handlePageNo = (page) =>{
@@ -30,17 +30,18 @@ const Movies = () => {
     useEffect(() =>{
         const fetchData = async() =>{
             try{
-              const ids = await fetchMovieIDs(pageNo);
-              setMovieIDs(ids);
+              const ids = await fetchSeriesIDs(pageNo);
+              setSeriesIDs(ids);
 
               const detailsPromise = ids.map(async(id) =>{
-                const data = await fetchMovieDetails(id.id);
+                const data = await fetchSeriesDetails(id.id);
+                console.log("data",data)
                 return data;
               })
 
               const details = await Promise.all(detailsPromise);
               const filteredDetails = details.filter((data) => data !== undefined);
-              setMovieDetails(filteredDetails);
+              setSeriesDetails(filteredDetails);
             }
             catch(error){
               console.error('Error fetching data : ', error);
@@ -49,12 +50,12 @@ const Movies = () => {
 
         fetchData();
     },[pageNo]);
-    console.log({pageNo},movieIDs);
-    console.log(movieDetails);
+    console.log({pageNo},seriesIDs);
+    console.log(seriesDetails);
 
   return (
     <div className='Movies'>
-      <MoviePage details={movieDetails}/>
+      <SeriesPage details={seriesDetails}/>
       <div className='page_no'>
         <span className='page' onClick={() => handlePageNo('prev')}><ArrowBackRoundedIcon/> Prev</span>
         <span>{pageNo}</span>
@@ -64,4 +65,4 @@ const Movies = () => {
   )
 }
 
-export default Movies
+export default Series;

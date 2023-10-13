@@ -6,7 +6,6 @@ const SeriesPage = (showType) => {
     const FormatDate = (dateString) =>{
         const date = new Date(dateString);
         const year = date.getFullYear();
-        console.log(year);
         return year;
     }
   return (
@@ -21,8 +20,8 @@ const SeriesPage = (showType) => {
           <div className='show_details'>
             <span className='title'>{showT.data && showT.data.poster_path && (showT.data.name)}</span>
             <span className='time'>
-                <span>{FormatDate(showT.data.first_air_date)} ||  {showT.data.runtime} min</span>
-                <span>Series</span>
+                <span>{FormatDate(showT.data.first_air_date)} ||  {showT.data.number_of_seasons} Season</span>
+                <span>TVSeries</span>
             </span>
           </div>
 

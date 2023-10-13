@@ -1,9 +1,9 @@
 import Home from './components/Home/Home';
 import Header from './components/Header/Header';
-import Movies from './components/Movies/Movies';
-import Series from './components/TVseries/Series';
-import MovieDescription from './components/Movies/MovieDescription';
-import SeriesDescription from './components/TVseries/SeriesDescription';
+import Movies from './components/Movies/Movies/Movies';
+import Series from './components/TVseries/Series/Series';
+import MovieDescription from './components/Movies/Description/MovieDescription';
+import SeriesDescription from './components/TVseries/Description/SeriesDescription';
 import { Routes, Route } from 'react-router-dom';
 import './app.css';
 

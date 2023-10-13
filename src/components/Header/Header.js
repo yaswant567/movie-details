@@ -18,6 +18,7 @@ const Header = () => {
         return;
       }
       const result = await fetchSearchResults(searchQuery);
+      console.log('result', result);
       setSearchResults(result.data.results);
     };
     fetchResults();
@@ -28,10 +29,14 @@ const Header = () => {
     setSearchQuery(query);
   };
 
-  const handleChoice = (id) => {
+  const handleChoice = (id, type) => {
     setSearchResults([]);
     setSearchQuery('');
-    navigate(`/Description/${id}`);
+    
+    if(type == 'tv')
+      navigate(`/SeriesDescription/${id}`);
+    else
+      navigate(`/MovieDescription/${id}`);
   };
 
   const closeDropdown = () => {
@@ -65,11 +70,11 @@ const Header = () => {
         <div className="search_drop" ref={searchDropRef}>
           {searchResults.map((result) => {
             return (
-              <div className="drops" key={result.id} onClick={() => handleChoice(result.id)}>
+              <div className="drops" key={result.id} onClick={() => handleChoice(result.id, result.media_type)}>
                 <span className="poster">
                   <img src={`https://www.themoviedb.org/t/p/w185/${result.poster_path}`} alt="Description" />
                 </span>
-                <span className="title">{result.title}</span>
+                {(result.media_type === 'tv') ? <span className="title">{result.name}</span> : <span className="title">{result.title}</span>}
               </div>
             );
           })}
