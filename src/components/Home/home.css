@@ -1,0 +1,9 @@
+.home{
+    display: flex;
+    width: 100vw;
+}
+
+.home_nowPlaying{
+    display: flex;
+    overflow: hidden;
+}
