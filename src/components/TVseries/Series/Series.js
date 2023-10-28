@@ -1,12 +1,14 @@
 import React,{useEffect, useState} from 'react'
-import { fetchSeriesIDs, fetchSeriesDetails } from '../../API/TvAPIs/TvApi'
+import { fetchSeriesIDs, fetchSeriesDetails, fetchNowPlayingSeries, fetchPopularSeries } from '../../API/TvAPIs/TvApi'
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import SeriesPage from '../../Pages/SeriesPage'
 
 import './series.css'
+import { useParams } from 'react-router-dom';
 
 const Series = () => {
+    const {type} = useParams();
     const [seriesIDs, setSeriesIDs] = useState([]);
     const [seriesDetails, setSeriesDetails] = useState([]);
     const [pageNo, setPageNo] = useState(1);
@@ -29,19 +31,31 @@ const Series = () => {
 
     useEffect(() =>{
         const fetchData = async() =>{
+          console.log("type ", type);
             try{
-              const ids = await fetchSeriesIDs(pageNo);
-              setSeriesIDs(ids);
+              if(type === "NowPlaying"){
+                const data = await fetchNowPlayingSeries(pageNo);
+                console.log("NowPlaying Series : ", data);
+                setSeriesDetails(data.data.results);
+              }
+              else if(type === 'Popular'){
+                const data = await fetchPopularSeries(pageNo);
+                setSeriesDetails(data.data.results);
+              }
+              else{
+                const ids = await fetchSeriesIDs(pageNo);
+                setSeriesIDs(ids);
+  
+                const detailsPromise = ids.map(async(id) =>{
+                  const data = await fetchSeriesDetails(id.id);
+                  return data;
+                })
+  
+                const details = await Promise.all(detailsPromise);
+                const filteredDetails = details.filter((data) => data !== undefined);
+                setSeriesDetails(filteredDetails);
+              }
 
-              const detailsPromise = ids.map(async(id) =>{
-                const data = await fetchSeriesDetails(id.id);
-                console.log("data",data)
-                return data;
-              })
-
-              const details = await Promise.all(detailsPromise);
-              const filteredDetails = details.filter((data) => data !== undefined);
-              setSeriesDetails(filteredDetails);
             }
             catch(error){
               console.error('Error fetching data : ', error);
@@ -50,8 +64,6 @@ const Series = () => {
 
         fetchData();
     },[pageNo]);
-    console.log({pageNo},seriesIDs);
-    console.log(seriesDetails);
 
   return (
     <div className='Movies'>

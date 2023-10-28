@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { fetchNowPlayingMovies } from '../../API/MovieAPIs/MovieApi';
-
+import { fetchNowPlayingSeries } from '../../API/TvAPIs/TvApi';
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 
-import './nowPlayingMovies.css';
+import '../../Movies/NowPlaying/nowPlayingMovies.css';
 import { Link } from 'react-router-dom';
 
-const NowPlayingMovies = () => {
+const NowPlayingSeries = () => {
   const [movieData, setMovieData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetchNowPlayingMovies(1);
+      const response = await fetchNowPlayingSeries();
       setMovieData(response.data.results);
     }
     fetchData();
@@ -34,9 +33,6 @@ const NowPlayingMovies = () => {
     }
   }
 
-  const handleClick = (id) =>{
-
-  }
   return (
     <div className='nowPlaying'>
       <div className='butn'>
@@ -46,17 +42,16 @@ const NowPlayingMovies = () => {
       
       <div className='nowplaying_Movies'>
       {movieData.map((item) => (
-        <div className='card' key={item.id} onClick={handleClick(item.id)}>
-        <Link to={`/MovieDescription/${item.id}`} className='custom_link'>
+        <div className='card' key={item.id}>
+        <Link to={`/SeriesDescription/${item.id}`} className='custom_link'>
           <span className='card_poster'>
             {item.poster_path && (
               <img src={`https://www.themoviedb.org/t/p/w185/${item.poster_path}`} alt='no img' />
             )}
           </span>
-          <span className='card_title'>{item.title}</span>
-          </Link>
+          <span className='card_title'>{item.name}</span>
+        </Link>
         </div>
-        
       ))}
       </div>
       
@@ -64,4 +59,4 @@ const NowPlayingMovies = () => {
   )
 }
 
-export default NowPlayingMovies;
+export default NowPlayingSeries;

@@ -1,9 +1,117 @@
 .home{
     display: flex;
+    flex-direction: column;
     width: 100vw;
-}
-
-.home_nowPlaying{
-    display: flex;
+    height: auto;
     overflow: hidden;
 }
+
+.home_latest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.latest{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.latest_backdrop{
+  width: 95%;
+  height: 39rem;
+}
+
+
+.home_nowPlaying, .home_popular{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 25rem;
+    border: 1.5px solid #9c27b0;
+    border-left: none;
+    border-right: none;
+}
+
+.nowplaying_Type, .popular_Type{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 13%;
+}
+.nowplaying_text, .popular_text, .UpComing_text{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    font-size:x-large;
+    height: 90%;
+}
+.Type{
+    display: flex;
+    width: 15rem;
+    height: 60%;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px;
+    background-color: #ffffff;
+    border-radius: 17px;
+  }
+  .type.active {
+    background: #ff5733;
+    color: white;
+  }
+ 
+  .type.movie{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 50%;
+    height: 95%;
+    color: black;
+    font-weight: bold;
+  }
+  .playingShow{
+    border-radius: 14px;
+    background-color:#9c27b0;
+  }
+  .popularShow{
+    border-radius: 14px;
+    background-color:#9c27b0;
+  }
+  .type.tv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 50%;
+    height: 95%;
+    font-weight: bold;
+    color: black;
+  }
+  .more{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    height: 2.1rem;
+    width: 7rem;
+    border-radius: 17px;
+    font-size: large;
+    cursor: pointer;
+    background-color:#9c27b0;
+  }
+
+  .UpComing_Type{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+  }

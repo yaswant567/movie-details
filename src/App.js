@@ -15,12 +15,14 @@ const App = () => {
       </header>
       <main>
         <Routes>
-          <Route path='/'  Component={Movies}/>
+          <Route path='/'  Component={Home}/>
           <Route path='/Home' Component={Home}/>
           <Route path='/Movies' Component={Movies}/>
+          <Route path='/Movies/:type' Component={Movies}/>
           <Route path='/MovieDescription/:id' Component={MovieDescription}/>
           <Route path='/SeriesDescription/:id' Component={SeriesDescription}/>
           <Route path='/TVseries' Component={Series}/>
+          <Route path='/TVseries/:type' Component={Series}/>
           {/*<Route path='/Description/:id' Component={TvDescription}/> */}
         </Routes>
       </main>

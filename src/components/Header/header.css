@@ -69,32 +69,43 @@
     left: 14.3%;
     right: 0;
     z-index: 2;
-    background-color: hsl(288deg 54.87% 26.44% / 95%);
+    background-color: hsl(281.25deg 89.57% 3.49% / 96%);
     border: 1px solid #cccccc54;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     max-height: 350px; 
-    height: 320px;
+    height: 350px;
     width: 43%;
     overflow-y: auto;
     margin-top: 0px;
     border-radius: 17px;
     color: #ffffff;
+    padding: 10px;
   }
   
   .search_drop::-webkit-scrollbar{
     scroll-behavior: smooth;
+    width: 5px;
+    height: 80%;
+    scrollbar-color: red;
   }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 17px;
+    height: 1px;
+    background: #01033a;
+    border: 2px solid #c1c1d0;
+  }
+
   .search_drop div {
     display: flex;
     align-items: center;
     padding: 5px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #cccccc36;
     cursor: pointer;
     text-decoration: none;
   }
   .search_drop img {
     width: 40px;
-    height: 60px;
+    height: 70px;
     margin-right: 10px;
   }
   

@@ -15,12 +15,10 @@ const MovieDescription = () => {
     useEffect(() =>{
       const fetchDetail = async() =>{
         const data = await fetchMovieDetails(id);
-        console.log('data:', data);
         setDetail(data);
       }
       fetchDetail();
     },[id])
-    console.log(detail);
 
     const fetchYear = (getDate) =>{
       const date = new Date(getDate);

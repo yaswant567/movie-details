@@ -18,7 +18,6 @@ const Header = () => {
         return;
       }
       const result = await fetchSearchResults(searchQuery);
-      console.log('result', result);
       setSearchResults(result.data.results);
     };
     fetchResults();
@@ -33,7 +32,7 @@ const Header = () => {
     setSearchResults([]);
     setSearchQuery('');
     
-    if(type == 'tv')
+    if(type === 'tv')
       navigate(`/SeriesDescription/${id}`);
     else
       navigate(`/MovieDescription/${id}`);
@@ -68,9 +67,9 @@ const Header = () => {
       </div>
       {searchResults.length > 0 && (
         <div className="search_drop" ref={searchDropRef}>
-          {searchResults.map((result) => {
+          {searchResults?.map((result) => {
             return (
-              <div className="drops" key={result.id} onClick={() => handleChoice(result.id, result.media_type)}>
+              result?.poster_path && <div className="drops" key={result.id} onClick={() => handleChoice(result.id, result.media_type)}>
                 <span className="poster">
                   <img src={`https://www.themoviedb.org/t/p/w185/${result.poster_path}`} alt="Description" />
                 </span>

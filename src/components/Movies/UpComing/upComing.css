@@ -1,4 +1,4 @@
-.nowPlaying{
+.upComing{
     width: 100%;
     height: 100%;
     position: relative;
@@ -9,7 +9,7 @@
   }
 
 
-.nowplaying_Movies{
+.upComing_Movies{
   display: flex;
   align-items: center;
   width: 100%;
@@ -42,7 +42,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: white;
 }
 
 
@@ -87,7 +86,4 @@
     &:hover {
       transform: scale(1.3);
     }
-}
-.custom_link{
-  text-decoration: none;
 }

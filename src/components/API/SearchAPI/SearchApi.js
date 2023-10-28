@@ -6,7 +6,6 @@ const authKey = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMDBiNDA5YTE1OTk3MDZkNWF
 
 
 export const fetchSearchResults = async(input) =>{
-    // const url = `${apiUrl}/movie?query=${input}&include_adult=false&language=en-US&page=1`;
     const url = `${apiUrl}/multi?query=${input}&include_adult=false&language=en-US&page=1`;
     const options = {
         method: 'GET',
