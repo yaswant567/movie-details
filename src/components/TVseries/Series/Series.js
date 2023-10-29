@@ -31,11 +31,9 @@ const Series = () => {
 
     useEffect(() =>{
         const fetchData = async() =>{
-          console.log("type ", type);
             try{
               if(type === "NowPlaying"){
                 const data = await fetchNowPlayingSeries(pageNo);
-                console.log("NowPlaying Series : ", data);
                 setSeriesDetails(data.data.results);
               }
               else if(type === 'Popular'){

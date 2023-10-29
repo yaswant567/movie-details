@@ -61,7 +61,6 @@ const Movies = () => {
               setMovieDetails(filteredDetails);
 
               const genre = await fetchGenreIDs();
-              console.log(genre);
               setGenreIds(genre.data.genres);
             }
             }
